@@ -1,6 +1,6 @@
 import java.awt.*;  
 import java.awt.event.*;  
-public class MyCalculator extends Frame  
+public class calculator extends Frame  
 {  
   
 public boolean setClear=true;  
@@ -24,7 +24,7 @@ Label memLabel=new Label(" ",Label.RIGHT);
 final int FRAME_WIDTH=325,FRAME_HEIGHT=325;  
 final int HEIGHT=30, WIDTH=30, H_SPACE=10,V_SPACE=10;  
 final int TOPX=30, TOPY=50;  
-MyCalculator(String frameText) 
+calculator(String frameText) 
 {  
 super(frameText);  
   
@@ -101,7 +101,7 @@ return resText;
   
 public static void main(String []args)  
 {  
-new MyCalculator("Calculator - JavaTpoint");  
+new calculator("Calculator - JavaTpoint");  
 }  
 }  
   
@@ -109,10 +109,10 @@ new MyCalculator("Calculator - JavaTpoint");
   
 class MyDigitButton extends Button implements ActionListener  
 {  
-MyCalculator cl;  
+calculator cl;  
   
 
-MyDigitButton(int x,int y, int width,int height,String cap, MyCalculator clc)  
+MyDigitButton(int x,int y, int width,int height,String cap, calculator clc)  
 {  
 super(cap);  
 setBounds(x,y,width,height);  
@@ -158,9 +158,9 @@ else
   
 class MyOperatorButton extends Button implements ActionListener  
 {  
-MyCalculator cl;  
+calculator cl;  
   
-MyOperatorButton(int x,int y, int width,int height,String cap, MyCalculator clc)  
+MyOperatorButton(int x,int y, int width,int height,String cap, calculator clc)  
 {  
 super(cap);  
 setBounds(x,y,width,height);  
@@ -180,7 +180,7 @@ if(opText.equals("1/x"))
     {  
     try  
         {double tempd=1/(double)temp;  
-        cl.displayLabel.setText(MyCalculator.getFormattedText(tempd));}  
+        cl.displayLabel.setText(calculator.getFormattedText(tempd));}  
     catch(ArithmeticException excp)  
                         {cl.displayLabel.setText("Divide by 0.");}  
     return;  
@@ -189,7 +189,7 @@ if(opText.equals("sqrt"))
     {  
     try  
         {double tempd=Math.sqrt(temp);  
-        cl.displayLabel.setText(MyCalculator.getFormattedText(tempd));}  
+        cl.displayLabel.setText(calculator.getFormattedText(tempd));}  
             catch(ArithmeticException excp)  
                     {cl.displayLabel.setText("Divide by 0.");}  
     return;  
@@ -221,7 +221,7 @@ case '/':
     break;  
 }  
   
-cl.displayLabel.setText(MyCalculator.getFormattedText(temp));  
+cl.displayLabel.setText(calculator.getFormattedText(temp));  
   
 } 
 }
@@ -230,10 +230,10 @@ cl.displayLabel.setText(MyCalculator.getFormattedText(temp));
   
 class MyMemoryButton extends Button implements ActionListener  
 {  
-MyCalculator cl;  
+calculator cl;  
   
 
-MyMemoryButton(int x,int y, int width,int height,String cap, MyCalculator clc)  
+MyMemoryButton(int x,int y, int width,int height,String cap, calculator clc)  
 {  
 super(cap);  
 setBounds(x,y,width,height);  
@@ -253,7 +253,7 @@ switch(memop)
 case 'C':   
     cl.memLabel.setText(" ");cl.memValue=0.0;break;  
 case 'R':   
-    cl.displayLabel.setText(MyCalculator.getFormattedText(cl.memValue));break;  
+    cl.displayLabel.setText(calculator.getFormattedText(cl.memValue));break;  
 case 'S':  
     cl.memValue=0.0;  
 case '+':   
@@ -271,9 +271,9 @@ case '+':
   
 class MySpecialButton extends Button implements ActionListener  
 {  
-MyCalculator cl;  
+calculator cl;  
   
-MySpecialButton(int x,int y, int width,int height,String cap, MyCalculator clc)  
+MySpecialButton(int x,int y, int width,int height,String cap, calculator clc)  
 {  
 super(cap);  
 setBounds(x,y,width,height);  
